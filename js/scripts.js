@@ -2,7 +2,7 @@ function processNumber(number){
   if (!number){
     return [];
     
-  }}
+  }
 
   const result = [];
   number = parseInt(number);
@@ -20,3 +20,17 @@ function processNumber(number){
     result.push(finalValue);
   } 
   return result;
+}
+$( document ).ready(function(){
+  $("#process").click(function(){
+    const numberFromTxt = $("#answer").val();
+    const results = processNumber(numberFromTxt);
+    if (results.length === 0){
+      $("numbers").html("No NUmbers to Display");
+      return;
+    }
+    for(let i = 0; i < results.length; i++) {
+      $("#numbers").append("<div>" =results[i] + "</div>")
+    }
+  })
+});
